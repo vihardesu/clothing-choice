@@ -1,12 +1,11 @@
 # clothing-choice
 Summary: This is a data visualization project for CSE 457 on popular clothing choice
-https://vihardesu.github.io/clothing-choice/index.html
 ************************************************
 CSE457 - Final Project
 Vihar Desu | vihar.desu@wustl.edu | 443845
 Nick Murray | nicholasmurray@wustl.edu | 441567
 ************************************************
-Usage:
+Usage: url https://vihardesu.github.io/clothing-choice/index.html
 
 
 ************************************************
