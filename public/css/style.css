@@ -1,0 +1,38 @@
+body {
+    font-family: avenir;
+}
+
+#overview-chart-svg{
+	display:block;
+	margin: auto;
+}
+
+
+/*Below modified from: http://seeingthruthefogg.herokuapp.com/index.html#*/
+.story {
+  text-align: center;
+  fill: #555;
+}
+
+#tagline {
+  font-size: 27px;
+  fill: #555;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+#problemText {
+  padding-top: 7px;
+  padding-left: 25%;
+  padding-right: 25%;
+  text-align: center;
+  font-size: 15px;
+  fill: #555;
+}
+
+.txt {
+  font-family: avenir;
+  text-align: center;
+  font-size: 150px;
+}
+/*Above modified from: http://seeingthruthefogg.herokuapp.com/index.html#*/
