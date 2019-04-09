@@ -12,7 +12,6 @@
         //Creating instances for each visualization
 
         
-
         d3.csv("data/fashion_companies.csv", function (error, fashionCompanies) {
 	        var overviewChart = new OverviewChart();
 	        overviewChart.update(fashionCompanies);
