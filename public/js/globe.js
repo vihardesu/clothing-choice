@@ -148,7 +148,7 @@ Globe.prototype.updateVis = function() {
 
   // var countryTooltip = d3.select("body").append("div").attr("class", "countryTooltip");
 
-  queue()
+  d3.queue()
   .defer(d3.json, "/raw_data/world-110.json")
   .defer(d3.json, "/raw_data/city-loc.json")
   .defer(d3.tsv, "/raw_data/world-countries.tsv")
