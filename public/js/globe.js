@@ -112,7 +112,7 @@ Globe.prototype.initVis = function() {
 				b.updateVis();
 				return;
 			}
-			$('#cityname').html("Currently Selected City: "+d);
+			$('#cityname').html("Current Selected City: "+d);
 			past_el = d3.select(this)
 			.style("font-size", "34px")
 			.style('background', 'yellow')
@@ -139,19 +139,18 @@ Globe.prototype.updateVis = function() {
   .attr("class", "water")
   .attr("d", vis.geoPath);
 
-	var cityTip = d3.tip()
-      .attr('class', 'd3-tip')
-      .offset([-10, 0])
-      // .html(d => `${d.name}: ${commaFormat(d.population)}`);
-			.html(d => console.log(d));
-  vis.svg.call(cityTip);
+	var tooltip = d3.select("#chart1").append("div")
+	.attr("class", "node-tip")
+	.style("opacity", 0);
+
+	// var cityTip = d3.tip()
+  //     .attr('class', 'd3-tip')
+  //     .offset([-10, 0])
+  //     // .html(d => `${d.name}: ${commaFormat(d.population)}`);
+	// 		.html(d => console.log(d));
+  // vis.svg.call(cityTip);
 
   // var countryTooltip = d3.select("body").append("div").attr("class", "countryTooltip");
-
-	// d3.queue()
-	// 	.defer(d3.json,"raw_data/city_info.json")
-	// 	.defer(d3.csv,"data/fashion_companies.csv")
-	// 	 .await(createVis);
 
   d3.queue()
   .defer(d3.json, "raw_data/world-110.json")
@@ -210,9 +209,27 @@ Globe.prototype.updateVis = function() {
 		              .attr('fill', 'red')
 		              .attr('fill-opacity', .65)
 		              .attr('r', 6)
-		              .on('mouseover', cityTip.show)
-		              .on('mouseout', cityTip.hide);
-		          circles.exit().remove();
+		              // .on('mouseover', cityTip.show)
+		              // .on('mouseout', cityTip.hide)
+									.on("mouseover", function (d) {
+			              d3.select(this).attr("r", 9);
+			                tooltip.transition()
+			                .duration(200)
+			                .style("opacity", .9);
+
+											console.log(d);
+			               // tooltip.html(d)
+			               //  .style("left", d3.select(this).attr("cx") + "px")
+			               //  .style("top", d3.select(this).attr("cy") + "px");
+			              })
+			              .on("mouseout", function (d) {
+			                d3.select(this).attr("r", 6);
+			                  tooltip.transition()
+			                  .duration(500)
+			                  .style("opacity", 0);
+			              });
+
+		         circles.exit().remove();
 		};
 
 		draw();

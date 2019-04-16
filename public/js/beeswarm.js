@@ -240,10 +240,7 @@ Beeswarm.prototype.updateVis = function() {
 						.append("circle")
 						.attr("class", "nodes")
             .on("mouseover", function (d) {
-              console.log(d);
               d3.select(this).attr("r", 5);
-              console.log(d.tooltip);
-              // if (d.tooltip) {
                 tooltip.transition()
                 .duration(200)
                 .style("opacity", .9);
@@ -256,11 +253,9 @@ Beeswarm.prototype.updateVis = function() {
               })
               .on("mouseout", function (d) {
                 d3.select(this).attr("r", 3);
-                // if (d.tooltip) {
                   tooltip.transition()
                   .duration(500)
                   .style("opacity", 0);
-                // }
               })
 						.attr("cx", vis.margin.left)
 						.attr("cy", function(d, i) {

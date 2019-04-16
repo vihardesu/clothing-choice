@@ -14,20 +14,6 @@ var b;
     function init() {
         //Creating instances for each visualization
 
-        // d3.json("raw_data/city_info.json", function(error, data) {
-        //
-        //   fakedata1 = []
-        //   fakedata2 = []
-        //
-        //   // console.log(data);
-        //
-        //   // console.log(data[selected_city]);
-        //
-        //   city_data = data[selected_city];
-        //
-        //   createVis(error, fakedata1, fakedata2, city_data);
-        //
-        // });
 
         d3.queue()
 	        .defer(d3.json,"raw_data/city_info.json")
@@ -48,8 +34,6 @@ var b;
               var g = new Globe(city_info);
 
               //value is the month, and the number is the amount of times it gets printed
-
-
 
        }
 
