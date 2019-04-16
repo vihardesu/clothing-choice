@@ -27,13 +27,16 @@ var b;
               var data = city_info;
 
               var overviewChart = new OverviewChart();
+
               overviewChart.update(fashion_companies);
 
+              //value is the month, and the number is the amount of times it gets printed
               b = new Beeswarm(city_info);
 
               var g = new Globe(city_info);
 
-              //value is the month, and the number is the amount of times it gets printed
+              var companyMap = new CompanyMap(fashion_companies);
+
 
        }
 

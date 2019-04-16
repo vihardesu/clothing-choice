@@ -11,10 +11,7 @@
 
 	<!-- CSS libraries -->
 	<link rel="stylesheet" href="public/js/bootstrap-4.2.1-dist/css/bootstrap.min.css">
-	<!-- for adding tooltips  -->
-	<!-- <script type="text/javascript" src="jquery.tipsy.js"></script>
-  <link href="tipsy.css" rel="stylesheet" type="text/css" /> -->
-
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" />
 	<!-- Custom CSS code -->
 	<link rel="stylesheet" href="public/css/style.css">
 
@@ -49,7 +46,8 @@
 
 					Our dataset is composed purely of annotations about clothing color, categories, the image and the upload coordinates. <br><br>
 
-		      We present a visual analysis of clothing and fashion across these images of people around the world and spanning several years, from June 2013 to December 2015.<br>
+		      We present a visual analysis of clothing and fashion across these images of people around the world spanning several years, from June 2013 to December 2015.
+					These sample trends could be possible avenues of future exploration for the larger dataset of 10 million images analyzed by the Cornell researchers, or any other large fashion dataset.<br>
 		    </p>
 		 </div>
 
@@ -64,7 +62,7 @@
 				</div>
 				<!-- <div class="col align-self-end"> -->
 				<div class = "col align-self-center">
-					<h2>Click on a City!</h2>
+					<h2>Click on a City to Begin!</h2>
 				<ul id = "city-list1">
 				</ul>
 			</div>
@@ -85,7 +83,7 @@
 		<div class="row">
 
 			<div class = "col align-self-center">
-				<h2 id = "cityname">Current Selected: Los Angeles </h2>
+				<h2 id = "cityname">Current Selected City: Los Angeles </h2>
 
 			</div>
 
@@ -135,6 +133,9 @@
 
 		<!-- COMPANY MAP -->
 		<div class="row">
+			<div class = "col align-self-center">
+				<h2>Map of Clothing Industry </h2>
+			</div>
 			<div class="col-md-8" id="company-map">
 
 			</div>
@@ -150,14 +151,16 @@
     <!-- JQuery Directly from online -->
 	<!-- <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script> -->
 	<script src="public/js/jquery-3.3.min.js"></script>
+	<!-- Leaflet Library -->
+ <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+   integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+   crossorigin=""></script>
 	<!-- Load JS libraries -->
 	<script src="public/js/bootstrap-4.2.1-dist/js/bootstrap.min.js"></script>
 	<script src="public/js/d3/d3.min.js"></script>
 	<script src="public/js/topojson.min.js"></script>
 	<script src="https://d3js.org/queue.v1.min.js"></script>
 	<!-- <script src="public/js/d3-queue.min.js"></script> -->
-	<!-- <script src="https://rawgit.com/Kcnarf/d3-beeswarm/master/build/d3-beeswarm.js"></script> -->
-	<script src="public/js/beeswarm-min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
 
 	<!-- Visualization objects -->

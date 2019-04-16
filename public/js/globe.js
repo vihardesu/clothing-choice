@@ -103,7 +103,7 @@ Globe.prototype.initVis = function() {
 					.style("font-size", "18px")
 					.style('background', 'none')
 
-					$('#cityname').html("Currently Selected City: "+d);
+					$('#cityname').html("Current Selected City: "+d);
 
 				// for the new element
 				past_el = d3.select(this)

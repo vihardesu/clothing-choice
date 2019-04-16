@@ -89,6 +89,16 @@ select {
   font-family: sans-serif;
 }
 
+/*Company-Map Visualization*/
+#company-map {
+  height: 600px;
+  width: 75%;
+  display:block;
+  margin: auto;
+  position: absolute;
+
+}
+
 .node-tip{
   position: absolute;
  padding: 8px;
