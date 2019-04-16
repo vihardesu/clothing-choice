@@ -130,3 +130,25 @@ select {
 	background: #000;
 	color: #fff;
 }
+
+
+.processBookTagline{
+  text-align: center;
+  font-size: 27px;
+  fill: #555;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+.processBookText{
+  padding-left: 25%;
+  padding-right: 25%;
+  text-align: center;
+  font-size: 15px;
+  fill: #555;
+}
+
+.processBookBlocks{
+   text-align: center;
+  fill: #555;
+}
