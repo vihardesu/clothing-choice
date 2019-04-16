@@ -4,6 +4,9 @@
  *  @param _data            -- Array with all stations of the bike-sharing network
  */
 
+//global variable
+var selected_city = "Los Angeles";
+
 Globe = function(_data) {
 
 	this.data = _data;
@@ -11,12 +14,35 @@ Globe = function(_data) {
 }
 
 /*
- *  Initialize matrix svg
+ *  Initialize globe elements
  */
 
 Globe.prototype.initVis = function() {
 	var vis = this;
-  vis.width = 600;
+	//set up city list
+
+	var counter = 0;
+	const keys = Object.keys(vis.data)
+		for (const key of keys) {
+			//I did this to avoid having one long city list
+			if(counter>17){
+				$('#city-list2').append(
+					$('<p>'+ key + '</p>' ).attr('class', 'city')
+						);
+			}
+			else{
+
+			$('#city-list1').append(
+		    $('<p>'+ key + '</p>' )
+				.attr('class', 'city')
+					);
+				}
+				counter = counter + 1;
+	}
+
+
+
+  vis.width = 500;
   vis.height = 500;
   vis.sens = .25;
   vis.focused;
@@ -35,7 +61,66 @@ Globe.prototype.initVis = function() {
       .translate([vis.width / 2, vis.height / 2])
       .clipAngle(90);
 
-  vis.path = d3.geoPath(vis.projection);
+  // vis.path = d3.geoPath(vis.projection);
+	vis.geoPath = d3.geoPath().projection(vis.projection);
+
+	// vis.tooltip = d3.select("body").append("div")
+	// 	.attr("class", "city-tooltip")
+	// 	.style("visibility", "hidden")
+
+	vis.cities = d3.selectAll(".city")
+	.data(keys);
+
+	vis.cities.exit().remove();
+
+	var past_el;
+
+	vis.cities.on("mouseover", function(d) {
+		console.log(d);
+			// tooltip.transition()
+			// 	.duration(200)
+				// .style("opacity", .9)
+				// vis.tooltip.style("visibility", "visible");
+				d3.select(this)
+				// .enter()
+				.style("font-weight", "700");
+			// 	.style("background", "white")
+			// 	.style("border-radius", "2px");
+			// vis.tooltip.html(d)
+			// 	.style("left", (d3.event.pageX + 5) + "px")
+			// 	.style("top", (d3.event.pageY - 28) + "px");
+		})
+		.on("mouseout", function(d) {
+			d3.select(this)
+			.style("font-weight", "normal");
+		})
+		.on("click", function(d) {
+			selected_city = d;
+
+			if(past_el) {
+				//reset the previous element
+				past_el
+					.style("font-size", "18px")
+					.style('background', 'none')
+
+					$('#cityname').html("Currently Selected City: "+d);
+
+				// for the new element
+				past_el = d3.select(this)
+				.style("font-size", "28px")
+				.style('background', 'yellow')
+				b.updateVis();
+				return;
+			}
+			$('#cityname').html("Currently Selected City: "+d);
+			past_el = d3.select(this)
+			.style("font-size", "34px")
+			.style('background', 'yellow')
+
+			b.updateVis();
+
+		})
+
   // Update the visualization
 	vis.updateVis();
 }
@@ -52,13 +137,20 @@ Globe.prototype.updateVis = function() {
   vis.svg.append("path")
   .datum({type: "Sphere"})
   .attr("class", "water")
-  .attr("d", vis.path);
+  .attr("d", vis.geoPath);
+
+	var cityTip = d3.tip()
+      .attr('class', 'd3-tip')
+      .offset([-10, 0])
+      // .html(d => `${d.name}: ${commaFormat(d.population)}`);
+			.html(d => console.log(d));
+  vis.svg.call(cityTip);
 
   // var countryTooltip = d3.select("body").append("div").attr("class", "countryTooltip");
 
   queue()
   .defer(d3.json, "../../raw_data/world-110.json")
-  .defer(d3.json, "../../raw_data/result.json")
+  .defer(d3.json, "../../raw_data/city-loc.json")
   .defer(d3.tsv, "../../raw_data/world-countries.tsv")
   .await(ready);
 
@@ -72,6 +164,7 @@ Globe.prototype.updateVis = function() {
     // console.log(cities);
 
     var result = [];
+		const citiesG = vis.svg.append('g');
 
     for(var i in cities)
       result.push([i, cities [i]]);
@@ -80,36 +173,56 @@ Globe.prototype.updateVis = function() {
             d[1].lat = +d[1].lat;
             d[1].lon = +d[1].lon;
             d[1].pop= +d[1].pop;
-            d[1].coord = vis.projection([d[1].lat, d[1].lon]);
           }));
 
-    // add circles to svg
-    // vis.svg.selectAll(".cities")
-    // .data(function (d, i) {
-    //   return result;
-    // })
-    // .enter()
-    // .append("circle")
-    // .attr("cx", function (d, i) {
-    //   // console.log(d[1].coord[0]);
-    //   return d[1].coord[0]; })
-    // .attr("cy", function (d) {
-    //   return d[1].coord[1]; })
-    // .attr("r", "8px")
-    // .attr("class", "cities")
-    // .attr("fill", "red")
+		//Drawing countries on the globe
+			var world = vis.svg.selectAll("path.land")
+			    .data(countries)
+			    .enter().append("path")
+			    .attr("class", "land")
+			    .attr("d", vis.geoPath);
 
+		const draw = () => {
+
+			const point = {
+            type: 'Point',
+            coordinates: [0, 0]
+          };
+
+          result.forEach(d => {
+            point.coordinates[0] = d[1].lon;
+            point.coordinates[1] = d[1].lat;
+            d.projected = vis.geoPath(point) ? vis.projection(point.coordinates) : null;
+          });
+
+
+					const circles = citiesG.selectAll('circle')
+		            .data(result.filter(d => d.projected));
+		          circles.enter().append('circle')
+		            .merge(circles)
+		              .attr('cx', d => d.projected[0])
+		              .attr('cy', d => d.projected[1])
+		              .attr('fill', 'red')
+		              .attr('fill-opacity', .65)
+		              .attr('r', 6)
+		              .on('mouseover', cityTip.show)
+		              .on('mouseout', cityTip.hide);
+		          circles.exit().remove();
+		};
+
+		draw();
     //Define what to do when dragging
     var dragging = function(d) {
+
 
       /* TO-DO: FIND A WAY TO MOVE CITIES ALONGSIDE AND ON TOP OF COUNTRIES */
       var rotate = vis.projection.rotate();
         vis.projection.rotate([d3.event.x * vis.sens, -d3.event.y * vis.sens, rotate[2]]);
-        // svg.selectAll(".cities").attr()
-        vis.svg.selectAll("path.land").attr("d", vis.path);
-        vis.svg.selectAll(".focused").classed("focused", focused = false);
-      }
 
+        vis.svg.selectAll("path.land").attr("d", vis.geoPath);
+				draw();
+
+      }
 
     var drag = d3.drag()
       //instead of origin, used subject instead for v4
@@ -119,12 +232,6 @@ Globe.prototype.updateVis = function() {
         })
         .on("drag", dragging);
 
-    //Drawing countries on the globe
-    var world = vis.svg.selectAll("path.land")
-    .data(countries)
-    .enter().append("path")
-    .attr("class", "land")
-    .attr("d", vis.path);
 
     //Create a container in which all pan-able elements will live
     var map = vis.svg.append("g")
@@ -140,22 +247,22 @@ Globe.prototype.updateVis = function() {
       .attr("opacity", 0);
 
     //Mouse events
-    world
-    .on("mouseover", function(d) {
-      countryTooltip.text(countryById[d.id])
-      .style("left", (d3.event.pageX + 7) + "px")
-      .style("top", (d3.event.pageY - 15) + "px")
-      .style("display", "block")
-      .style("opacity", 1);
-    })
-    .on("mouseout", function(d) {
-      countryTooltip.style("opacity", 0)
-      .style("display", "none");
-    })
-    .on("mousemove", function(d) {
-      countryTooltip.style("left", (d3.event.pageX + 7) + "px")
-      .style("top", (d3.event.pageY - 15) + "px");
-    });
+    // world
+    // .on("mouseover", function(d) {
+    //   countryTooltip.text(countryById[d.id])
+    //   .style("left", (d3.event.pageX + 7) + "px")
+    //   .style("top", (d3.event.pageY - 15) + "px")
+    //   .style("display", "block")
+    //   .style("opacity", 1);
+    // })
+    // .on("mouseout", function(d) {
+    //   countryTooltip.style("opacity", 0)
+    //   .style("display", "none");
+    // })
+    // .on("mousemove", function(d) {
+    //   countryTooltip.style("left", (d3.event.pageX + 7) + "px")
+    //   .style("top", (d3.event.pageY - 15) + "px");
+    // });
 
     //Country focus on option select
     // d3.select("select").on("change", function() {
