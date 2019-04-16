@@ -1,6 +1,9 @@
 /*
  * Root file that handles instances of all the charts and loads the visualization
  */
+
+var b;
+
 (function(){
     var instance = null;
 
@@ -11,12 +14,32 @@
     function init() {
         //Creating instances for each visualization
 
-        
 
-        d3.csv("data/fashion_companies.csv", function (error, fashionCompanies) {
-	        var overviewChart = new OverviewChart();
-	        overviewChart.update(fashionCompanies);
-        });
+        d3.queue()
+	        .defer(d3.json,"raw_data/city_info.json")
+          .defer(d3.csv,"data/fashion_companies.csv")
+	         .await(createVis);
+
+        function createVis(error, city_info, fashion_companies){
+
+              city_data = city_info[selected_city];
+
+              var data = city_info;
+
+              var overviewChart = new OverviewChart();
+
+              overviewChart.update(fashion_companies);
+
+              //value is the month, and the number is the amount of times it gets printed
+              b = new Beeswarm(city_info);
+
+              var g = new Globe(city_info);
+
+              var companyMap = new CompanyMap(fashion_companies);
+
+
+       }
+
     }
 
     /**

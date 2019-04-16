@@ -36,3 +36,119 @@ body {
   font-size: 150px;
 }
 /*Above modified from: http://seeingthruthefogg.herokuapp.com/index.html#*/
+
+/* for globe chart */
+#chart1{
+	display:block;
+	margin: auto;
+}
+
+.water {
+  fill: #00248F;
+}
+
+.land {
+  fill: #A98B6F;
+  stroke: #FFF;
+  stroke-width: 0.7px;
+}
+
+.d3-tip {
+      font-family: sans-serif;
+      font-size: 1.5em;
+      line-height: 1;
+      padding: 7px;
+      background: black;
+      color: lightgray;
+      border-radius: 20px;
+    }
+
+.focused {
+  fill: #33CC33;
+}
+
+select {
+  position: absolute;
+  top: 20px;
+  left: 580px;
+  border: solid #ccc 1px;
+  padding: 3px;
+  box-shadow: inset 1px 1px 2px #ddd8dc;
+}
+
+.city-tip {
+  position: absolute;
+  display: none;
+  pointer-events: none;
+  background: #fff;
+  padding: 5px;
+  text-align: left;
+  border: solid #ccc 1px;
+  color: #666;
+  font-size: 14px;
+  font-family: sans-serif;
+}
+
+/*Company-Map Visualization*/
+#company-map {
+  height: 600px;
+  width: 75%;
+  display:block;
+  margin: auto;
+  position: absolute;
+
+}
+
+.node-tip{
+  position: absolute;
+ padding: 8px;
+ text-align: left;
+ font: 16px "Hiragino Sans GB", "华文细黑", "STHeiti", "微软雅黑", "Microsoft YaHei", SimHei, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+ background: rgba(0, 0, 0, .95);
+ color: #fff;
+ border: 0px;
+ border-radius: 8px;
+ pointer-events: none;
+}
+
+.button {
+	width: 68px;
+	padding: 6px 6px;
+	margin-right: 10px;
+	cursor: pointer;
+	text-align: center;
+	font-size: 16px;
+	border: 1px solid #e0e0e0;
+	float: left;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+}
+.button:hover {
+	background: #e0e0e0;
+}
+.button.current {
+	background: #000;
+	color: #fff;
+}
+
+
+.processBookTagline{
+  text-align: center;
+  font-size: 27px;
+  fill: #555;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+.processBookText{
+  padding-left: 25%;
+  padding-right: 25%;
+  text-align: center;
+  font-size: 15px;
+  fill: #555;
+}
+
+.processBookBlocks{
+   text-align: center;
+  fill: #555;
+}
