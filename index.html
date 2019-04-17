@@ -131,19 +131,34 @@
 			<hr/>
 		<br/>
 
-		<!-- COMPANY MAP -->
+		<!-- COLOR MAP -->
 		<div class="row">
 			<div class = "col align-self-center">
-				<h2>Map of Clothing Industry </h2>
+				<h2>Color Map Tiled Bar Chart</h2>
 			</div>
-			<div class="col-md-8" id="company-map">
+			<div class="col-md-8" id="color-map">
 
 			</div>
-			</div>
+		</div>
 
-			<br/>
+
+<!-- 		    <div id="chart">
+		      <svg width="1000" height="370">
+		        <g class="chart" transform="translate(20, 40)">
+		          <text class="title" y="-9">Life Expectancy, 2000 to 2016</text>
+		          <g class="legend" transform="translate(870,-20)" >
+		            <rect width="13" height="13" />
+		            <text x="17" y="11">= 1 year</text>
+		          </g>
+		          <g class="y axis" />
+		          <g class="bars" transform="translate(10, 0)"></g>
+		        </g>
+		      </svg>
+    		</div> -->
+
+		<br/>
 			<hr/>
-			<br/>
+		<br/>
 
 	</div>
 
@@ -152,9 +167,10 @@
 	<!-- <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script> -->
 	<script src="public/js/jquery-3.3.min.js"></script>
 	<!-- Leaflet Library -->
- <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
-   integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
-   crossorigin=""></script>
+	 <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+	   integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+	   crossorigin=""></script>
+
 	<!-- Load JS libraries -->
 	<script src="public/js/bootstrap-4.2.1-dist/js/bootstrap.min.js"></script>
 	<script src="public/js/d3/d3.min.js"></script>
@@ -163,12 +179,15 @@
 	<!-- <script src="public/js/d3-queue.min.js"></script> -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
 
+	<!-- Load JS for Tiled Bar Chart -->
+	<script src="public/js/lodash.min.js"></script>
+
 	<!-- Visualization objects -->
 	<!-- PUT JS FILES OF VISUALIZATIONS HERE -->
-	<script type="application/javascript" src="public/js/companyMap.js"></script>
 	<script type="application/javascript" src="public/js/beeswarm.js"></script>
 	<script type="application/javascript" src="public/js/overviewChart.js"></script>
 	<script type="application/javascript" src="public/js/globe.js"></script>
+	<script type="text/javascript" src="public/js/colorMap.js"></script>
 
 
 	<!-- Load data, create visualizations -->

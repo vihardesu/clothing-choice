@@ -26,6 +26,7 @@ var b;
 
               var data = city_info;
 
+
               var overviewChart = new OverviewChart();
 
               overviewChart.update(fashion_companies);
@@ -35,7 +36,7 @@ var b;
 
               var g = new Globe(city_info);
 
-              var companyMap = new CompanyMap(fashion_companies);
+              var colorMap = new ColorMap(city_info);
 
 
        }

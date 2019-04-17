@@ -195,7 +195,7 @@ Beeswarm.prototype.updateVis = function() {
 
   };
 
-  console.log(city);
+  //console.log(city);
 
   var tooltip = d3.select("#chart2").append("div")
   .attr("class", "node-tip")
@@ -245,7 +245,7 @@ Beeswarm.prototype.updateVis = function() {
                 .duration(200)
                 .style("opacity", .9);
               var path = d[1];
-              console.log(path)
+              //console.log(path)
               var string = "<img src=https://s3.amazonaws.com/streetstyle27k" + path +" />";
                tooltip.html(string)
                 .style("left", d3.select(this).attr("cx") + "px")

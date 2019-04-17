@@ -84,7 +84,7 @@ OverviewChart.prototype.update = function(fashionCompanies){
 
     });
 
-    console.log(companies);
+    //console.log(companies);
     for (var it = industry_category_list.values(), val= null; val=it.next().value; ) {
         companies.push({
                 name: val,
@@ -104,7 +104,7 @@ OverviewChart.prototype.update = function(fashionCompanies){
          ]);
     }
 
-    console.log(ordinalScale);
+    //console.log(ordinalScale);
 
 
     //console.log(companies);
@@ -115,7 +115,7 @@ OverviewChart.prototype.update = function(fashionCompanies){
         .parentId(function(d) {  return d.primary_industry; })
         (companies);
 
-    console.log(rootNode);
+    //console.log(rootNode);
 
     drawViz(rootNode)
 
