@@ -7,6 +7,45 @@ body {
 	margin: auto;
 }
 
+.tooltip{
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+/*Legends for Treemap etc.*/
+.legend {
+  font-size: 12px;
+  fill: #ffff;
+  display:block;
+  margin: auto;
+  text-align: center;
+}
+
+#legend-overview-chart {
+  height: 400px;
+  width: 50%;
+  display:block;
+  margin: auto;
+}
+
+/*Color Map CSS*/
+
+.barLegend {
+  font-size: 12px;
+  fill: #555;
+}
+
+.barLegend rect {
+  fill: #aaa;
+}
+
+
+
 
 /*Below modified from: http://seeingthruthefogg.herokuapp.com/index.html#*/
 .story {

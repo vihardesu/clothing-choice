@@ -32,6 +32,37 @@ OverviewChart.prototype.init = function(){
         .attr('height', self.svgHeight)
         .attr('id', "overview-chart-group");
 
+    var divLegendChart = d3.select("#legend-overview-chart");
+
+    var legendGroup = divLegendChart.append("g")
+        .attr("class", "legend")
+        .attr('width', self.svgWidth)
+        .attr('height', self.svgHeight)
+        .attr("transform", "translate(" + 87 + "," + -20 + ")");
+
+    legendGroup.append("text")
+        .attr("x", 0)
+        .attr("y", 40)
+        .style('font-weight', "bold")
+        .text("Clothing Industry Sector")
+
+    var ledgColors = ['#ffffff', '#ffffff', '#00CCC6', '#FF4646', '#99CC00', '#CC33FF',
+            '#6633FF', '#CCFF33', '#1BC444', '#3333CC', '#FF9900', '#339933',
+            '#1BAAC4', '#CD0EB9', '#9966FF', '#990033', '#E735D7', '#00CC99',
+            '#FF6B6B', '#99CC00', '#1f65a8', '#e5ddb1', '#ee41e4', '#c4e628',
+            '#7B68EE', '#D4AF37', '#fff0f5']
+
+    ,   ledgLabels = ["", "", "Clothing","Specialty Retail","Footwear","Recreational Goods","Other Commercial Services","Holding Companies","Internet Retail","Department Stores","Catalog Retail","Logistics", "Other Retail", "Accessories", "Luxury Goods", "Distributors/Wholesale", "Consulting Services (B2B)", "Aerospace and Defense", "Conglomerates", "Buildings and Property", "Distributors/Wholesale (B2C)", "Other Apparel", "Industrial Supplies and Parts", "Other Textiles", "General Merchandise Stores", "Other Restaurants, Hotels and Leisure"]
+        for (i = 0; i < 24; i++) {
+            legendGroup.append('div')
+                .attr("class","legend")
+                .style("width", "350px")
+                .style("height", "15px")
+                .style("top", function (d) { return (55 + 18*i) + "px" })
+                .text(function (d) { return ledgLabels[i] })
+                .style("background", function (d) { return ledgColors[i] })
+        };
+
 };
 
 
@@ -97,13 +128,14 @@ OverviewChart.prototype.update = function(fashionCompanies){
 
     var ordinalScale = d3.scaleOrdinal()
         .domain(industry_category_list)
-        .range(['#CD5C5C', '#A9CEF4', '#36494E', '#000000', '#CC0033', '#CC33FF',
-                '#6633FF', '#CCFF33', '#33FFFF', '#3333CC', '#FF9900', '#339933',
-                '#33FF00', '#0000CC', '#9966FF', '#990033', '#330066', '#00CC99',
-                '#FFFFFF', '#99CC00', '#1f65a8', '#e5ddb1', '#ee41e4', '#c4e628'
-         ]);
+        .range(['#ffffff', '#ffffff', '#00CCC6', '#FF4646', '#99CC00', '#CC33FF',
+            '#6633FF', '#CCFF33', '#1BC444', '#3333CC', '#FF9900', '#339933',
+            '#1BAAC4', '#CD0EB9', '#9966FF', '#990033', '#E735D7', '#00CC99',
+            '#FF6B6B', '#99CC00', '#1f65a8', '#e5ddb1', '#ee41e4', '#c4e628',
+            '#7B68EE', '#D4AF37', '#fff0f5']);
     }
 
+    //console.log(industry_category_list);
     //console.log(ordinalScale);
 
 
@@ -136,10 +168,10 @@ OverviewChart.prototype.update = function(fashionCompanies){
             .enter()
             .append('rect');
 
-        // var colorScale = d3.scaleOrdinal()
-        //     .domain(d.data.data.primary_industry);
-
-        //console.log(d.data.data.primary_industry);
+        // Define the div for the tooltip
+        var tip = d3.select("body").append("div")   
+            .attr("class", "tooltip")               
+            .style("opacity", .9);
 
 
         // Draw on screen
@@ -152,7 +184,7 @@ OverviewChart.prototype.update = function(fashionCompanies){
             .attr('fill', function (d, i) {
                 // console.log(d.data.data.primary_industry); 
                 //console.log(d.data.primary_industry);
-                if (d.data.data.primary_industry == "null"){
+                if (d.data.data.primary_industry == null){
                     return "black";
                 }
                 else {
@@ -161,13 +193,17 @@ OverviewChart.prototype.update = function(fashionCompanies){
 
                 //return ordinalScale(d.data.data.primary_industry);
             })
-            .on("mousemove", function (d) {
+            .on("mouseover", function (d) {   
 
-            })
+                tip.html(d.data.data.name + "<br/>" + "Industry: " + d.data.data.primary_industry + "<br/>" + "Revenue: " + d.data.data.revenue)  
+                    .style("left", (d3.event.pageX) + "px")     
+                    .style("top", (d3.event.pageY - 28) + "px")
+                    .style("display", "inline-block");
+
+            }) 
             .on("mouseout", function (d) {
-
+                tip.style("display", "none");  
             });
-
 
     }
 };
