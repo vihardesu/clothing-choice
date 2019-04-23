@@ -15,6 +15,7 @@ body {
   color: #fff;
   border-radius: 2px;
   pointer-events: none;
+  position: absolute;
 }
 
 /*Legends for Treemap etc.*/
@@ -45,7 +46,41 @@ body {
 }
 
 
+.bars rect {
+  fill: "green";
+}
 
+.y_axis path {
+  display: none;
+}
+
+.y_axis text {
+  font-size: 11px;
+  fill: #777;
+  font-weight: bold;
+}
+
+.x_axis text {
+  font: 15px sans-serif;
+}
+
+.x_axis {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+#color-map-svg{
+  display:block;
+  margin: auto;
+  /*position: absolute;*/
+  /*left: 20%;*/
+}
+
+#color-map-group{
+  display: block;
+  margin: auto;
+}
 
 /*Below modified from: http://seeingthruthefogg.herokuapp.com/index.html#*/
 .story {

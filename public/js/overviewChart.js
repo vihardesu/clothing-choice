@@ -174,6 +174,11 @@ OverviewChart.prototype.update = function(fashionCompanies){
             .style("opacity", .9);
 
 
+        //if previously clicked
+        var clicked = []
+
+        console.log("here")
+
         // Draw on screen
         vSlices.attr('x', function (d) { return d.x0; })
             .attr('y', function (d) { return d.y0; })
@@ -203,6 +208,16 @@ OverviewChart.prototype.update = function(fashionCompanies){
             }) 
             .on("mouseout", function (d) {
                 tip.style("display", "none");  
+            })
+            .on("click", function (d) {
+                console.log("here"); 
+                var click = d3.select(this);
+                // tip.html(d.data.data.name + "<br/>" + "Industry: " + d.data.data.primary_industry + "<br/>" + "Revenue: " + d.data.data.revenue)  
+                //     .style("left", (d3.event.pageX) + "px")     
+                //     .style("top", (d3.event.pageY - 28) + "px")
+                //     .style("display", "inline-block");
+                console.log(click); 
+                // tip.style("display", "none");  
             });
 
     }
