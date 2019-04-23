@@ -98,11 +98,44 @@
 			<hr/>
 		<br/>
 
+		<!-- COLOR MAP -->
+		<div class="row">
+			<div class = "col align-self-center">
+				<h2>Color Map Tiled Bar Chart</h2>
+			</div>
+			<div class="col-md-12" id="color-map">
+
+			</div>
+		</div>
+
+		<br/>
+			<hr/>
+		<br/>
+
+		<!-- City Map -->
+		<div class="row">
+
+			<div class = "col align-self-center">
+				<h2> City Map by Income and Population </h2>
+
+			</div>
+
+			<div class="col-md-12" id="city-map">
+					<!-- <p>Click for More Info</p> -->
+
+			</div>
+
+		</div>
+
+		<br/>
+			<hr/>
+		<br/>
+
 		<!-- Global Trends -->
 		<div class="row">
 
 			<div class = "col align-self-center">
-				<h2>City Trends </h2>
+				<h2> Factors Affecting Clothing Choice </h2>
 
 			</div>
 
@@ -120,11 +153,11 @@
 		<!-- TREEMAP -->
 		<div class="row">
 			<div class = "col align-self-center">
-				<h2>Major Influences in the Clothing Industry </h2>
+				<h2> Largest Retailers Globally </h2>
 			</div>
 			<div class="col-md-12" id="overview-chart">
-
 			</div>
+				<div id="legend-overview-chart"></div>
 		</div>
 
 		<br/>
@@ -163,13 +196,17 @@
 	<!-- <script src="public/js/d3-queue.min.js"></script> -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
 
+	<!-- Load JS for Tiled Bar Chart -->
+	<script src="public/js/lodash.min.js"></script>
+
 	<!-- Visualization objects -->
 	<!-- PUT JS FILES OF VISUALIZATIONS HERE -->
 	<script type="application/javascript" src="public/js/companyMap.js"></script>
+	<script type="application/javascript" src="public/js/cityMap.js"></script>
 	<script type="application/javascript" src="public/js/beeswarm.js"></script>
+		<script type="application/javascript" src="public/js/globe.js"></script>
+	<script type="text/javascript" src="public/js/colorMap.js"></script>
 	<script type="application/javascript" src="public/js/overviewChart.js"></script>
-	<script type="application/javascript" src="public/js/globe.js"></script>
-
 
 	<!-- Load data, create visualizations -->
 	<script src="public/js/main.js"></script>

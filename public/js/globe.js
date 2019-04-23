@@ -4,8 +4,7 @@
  *  @param _data            -- Array with all stations of the bike-sharing network
  */
 
-//global variable
-var selected_city = "Los Angeles";
+
 
 Globe = function(_data) {
 
@@ -76,7 +75,6 @@ Globe.prototype.initVis = function() {
 	var past_el;
 
 	vis.cities.on("mouseover", function(d) {
-		console.log(d);
 			// tooltip.transition()
 			// 	.duration(200)
 				// .style("opacity", .9)
@@ -109,15 +107,21 @@ Globe.prototype.initVis = function() {
 				past_el = d3.select(this)
 				.style("font-size", "28px")
 				.style('background', 'yellow')
+				//update beeswarm
 				b.updateVis();
+
+				//update city map
+				c.updateVis();
+
+				//update color map
+				colorMap.wrangleData();  
+
 				return;
 			}
 			$('#cityname').html("Current Selected City: "+d);
 			past_el = d3.select(this)
 			.style("font-size", "34px")
 			.style('background', 'yellow')
-
-			b.updateVis();
 
 		})
 
@@ -212,12 +216,14 @@ Globe.prototype.updateVis = function() {
 		              // .on('mouseover', cityTip.show)
 		              // .on('mouseout', cityTip.hide)
 									.on("mouseover", function (d) {
+										console.log(d);
+
 			              d3.select(this).attr("r", 9);
 			                tooltip.transition()
 			                .duration(200)
 			                .style("opacity", .9);
 
-											console.log(d);
+
 			               // tooltip.html(d)
 			               //  .style("left", d3.select(this).attr("cx") + "px")
 			               //  .style("top", d3.select(this).attr("cy") + "px");

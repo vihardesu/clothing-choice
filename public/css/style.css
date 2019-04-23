@@ -2,9 +2,50 @@ body {
     font-family: avenir;
 }
 
+/* City Map Svg  */
+
+#city-map {
+  height: 500px;
+  width: 500px;
+  /* display:block;
+  margin: auto;
+  position: absolute; */
+
+}
+
+/* overview chart */
+
 #overview-chart-svg{
 	display:block;
 	margin: auto;
+}
+
+.tooltip{
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+  pointer-events: none;
+  position: absolute;
+}
+
+
+/*Legends for Treemap etc.*/
+.legend {
+  font-size: 12px;
+  fill: #ffff;
+  display:block;
+  margin: auto;
+  text-align: center;
+}
+
+#legend-overview-chart {
+  height: 400px;
+  width: 50%;
+  display:block;
+  margin: auto;
 }
 
 
@@ -99,6 +140,14 @@ select {
 
 }
 
+#city-map {
+   width: 80%;
+   height: 600px;
+   /* display:block;
+   margin: auto;
+   position: absolute; */
+}
+
 .node-tip{
   position: absolute;
  padding: 8px;
@@ -151,4 +200,52 @@ select {
 .processBookBlocks{
    text-align: center;
   fill: #555;
+}
+
+/*Color Map CSS*/
+
+.barLegend {
+  font-size: 12px;
+  fill: #555;
+}
+
+.barLegend rect {
+  fill: #aaa;
+}
+
+
+.bars rect {
+  fill: "green";
+}
+
+.y_axis path {
+  display: none;
+}
+
+.y_axis text {
+  font-size: 11px;
+  fill: #777;
+  font-weight: bold;
+}
+
+.x_axis text {
+  font: 15px sans-serif;
+}
+
+.x_axis {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+#color-map-svg{
+  display:block;
+  margin: auto;
+  /*position: absolute;*/
+  /*left: 20%;*/
+}
+
+#color-map-group{
+  display: block;
+  margin: auto;
 }
