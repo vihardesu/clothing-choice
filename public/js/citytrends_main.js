@@ -7,6 +7,9 @@ var c;
 
 var selected_city = "Los Angeles";
 
+
+
+
 (function(){
     var instance = null;
 
@@ -40,6 +43,8 @@ var selected_city = "Los Angeles";
               var cg = new CityGlobe(city_info);
 
               colorMap = new ColorMap(city_info);
+
+              
 
 
        }

@@ -1,16 +1,14 @@
 # clothing-choice
-Summary: This is a data visualization project for CSE 457 on sustainable clothing choice
+Summary: This is a data visualization project for CSE 457 on clothing and fashion trends. 
 ************************************************
 CSE457 - Final Project
 Vihar Desu | vihar.desu@wustl.edu | 443845
 Nick Murray | nicholasmurray@wustl.edu | 441567
 ************************************************
-Usage:
-
-
+Overview: Toggle through the navigation bar to experience the three main visualizations for our project. The first one is an analysis of the top clothing trends in 31 popular cities followed by a comprehensive view of user uploads in each city. The second visualization captures geographic information about the regions in which Instagram images were uploaded in different countries. The final visualization is a treemap providing a size-comparison analysis of 250 of the largest fashion brands in the world that influence fashion trends globally. 
 ************************************************
 Notes:
-
+We took advantage of a few main external resources in developing this project. Firstly, the StreetStyle27K data set contained the images of interest for our analysis. Furthermore, we used Leaflet.js for our mapping visualizations. Other libraries we used included FlowingData tutorials on tiled bar charts, and we also found inspiration from a Harvard CSE 171 project cited below.
 
 ************************************************
 Sources:

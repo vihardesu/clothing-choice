@@ -11,6 +11,9 @@ CityMap = function(_data, _cityloc) {
 	this.data = _data;
   this.city = _cityloc;
 	this.initVis();
+
+
+
 }
 
 
@@ -63,7 +66,41 @@ CityMap.prototype.wrangleData = function() {
  */
 
 CityMap.prototype.updateVis = function() {
-  console.log("here");
+
+cityLocationArray = [["Bangkok", 13.787436658, 100.496136909],
+["Beijing", 39.967228333, 116.317658333],
+["Bogota", 4.533531005, -74.088131216],
+["Buenos Aires", -34.7015543, -58.3739383],
+["Cairo", 30.016333, 31.2423508],
+["Delhi", 28.577473406, 77.376687108],
+["Dhaka", 23.7019921, 90.417867],
+["Guangzhou", 23.184594079, 113.220501104],
+["Istanbul", 41.033093439, 28.97659244],
+["Jakarta", -6.23284927, 106.86414185],
+["Karachi", 24.9072427, 66.972015],
+["Kolkata", 22.614825, 88.435913333],
+["Lagos", 6.65598646, 3.33248304],
+["London", 51.508414267, -0.143360077],
+["Los Angeles", 34.0433305, -118.257071667],
+["Manila", 14.607481892, 121.098990672],
+["Mexico City", 19.2907461, -98.9332553],
+["Mumbai", 18.931296194, 72.827788],
+["New York City", 40.645391336, -73.983963607],
+["Osaka", 34.671688333, 135.496338333],
+["Rio de Janeiro", -22.977830177, -43.194346286],
+["Sao Paulo", -23.527833333, -46.67],
+["Seoul", 37.558782113, 126.803019047],
+["Shanghai", 31.123586167, 121.38703],
+["Tianjin", 39.113660343, 117.212214253],
+["Tokyo", 35.670138333, 139.761261667],
+["Paris", 48.855186801, 2.361205553],
+["Berlin", 52.494104093, 13.436008752],
+["Madrid", 40.447516917, -3.695172329],
+["Kiev", 50.467603333, 30.515995],
+["Rome", 41.894599, 12.483092]]; 
+
+
+  console.log(cityLocationArray);
   var vis = this;
 
   var city_loc = vis.city[selected_city];
@@ -72,7 +109,22 @@ CityMap.prototype.updateVis = function() {
 
   console.log(city_loc);
 
-  var coordinates = [parseFloat(city_loc.lat), parseFloat(city_loc.lon) ]
+  var lattitude = 0;
+  var longitude = 0;
+
+  for (var i = 0; i<31; i++){
+    if(selected_city == cityLocationArray[i][0]){
+      lattitude = cityLocationArray[i][1]; 
+      longitude = cityLocationArray[i][2];
+    }
+  }
+
+
+
+
+
+
+  var coordinates = [lattitude, longitude]
 
   // console.log(coordinates);
 
