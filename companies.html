@@ -11,13 +11,14 @@
 
 	<!-- CSS libraries -->
 	<link rel="stylesheet" href="public/js/bootstrap-4.2.1-dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" />
+
+	  <!-- LEAFLET -->
+	  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" />
+
 	<!-- Custom CSS code -->
 	<link rel="stylesheet" href="public/css/style.css">
-
 </head>
 <body>
-
 <!-- Modified from source: https://www.codeply.com/go/kTGlK9Axdk/bootstrap-4-navbar-center-links-examples -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
@@ -26,10 +27,9 @@
         </button>
         <div class="navbar-collapse collapse" id="navbar10">
             <ul class="navbar-nav nav-fill w-100">
-            	                <li class="nav-item">
+                <li class="nav-item">
                 	<a class="nav-link" href="index.html">Home</a>
                 </li>
-
                 <li class="nav-item">
                     <a class="nav-link" href="cityTrends.html">Fashion by City</a>
                 </li>
@@ -44,69 +44,40 @@
         </div>
     </div>
 </nav>
-
-
 	<div class="container-fluid">
-
 
 		<!-- Header -->
 		<div class="row">
 			<div class="col-md-12">
 				<br/>
-				<h5>CSE 457 Final Project</h5>
+				<h5>CSE 457 Final Project - Final Project</h5>
 				<span>Vihar Desu | vihar.desu@wustl.edu | 443845</span>
 				<br/>
 				<span>Nick Murray | nicholasmurray@wustl.edu | 441567</span>
-				<!-- <br/> -->
-				<!-- <a href="process_book.html">Our Process Book </a> -->
+				<br/>
+				<a href="index.html">Return</a>
 					<hr/>
 				<br/>
 			</div>
 		</div>
 
-		<div id="storyBox" class="story">
-		    <div id="story"><svg width="500" height="200"><text class="txt" x="90" y="150">  27K</text></svg></div>
-		    <p id="tagline">StreetStyle: Exploring world-wide clothing styles from thousands of photos</p>
-		    <p id="problemText">
-		      Each day billions of photographs are uploaded to photo-sharing services and social media platforms. These images are packed with information about how people live around the world.  <br><br>
+	<div class="container-fluid">
 
-
-		      In this visualization, we explore an annotated set of ~27,000 Instagram photos across 31 cities from Cornell University researchers (http://streetstyle.cs.cornell.edu/).<br><br>
-
-					Our dataset is composed purely of annotations about clothing color, categories, the image and the upload coordinates. <br><br>
-
-		      We present a visual analysis of clothing and fashion across these images of people around the world spanning several years, from June 2013 to December 2015.
-					These sample trends could be possible avenues of future exploration for the larger dataset of 10 million images analyzed by the Cornell researchers, or any other large fashion dataset.<br>
-		    </p>
-		 </div>
-
-		<br/>
-			<hr/>
-		<br/>
-
-		<!-- BEESWARM -->
+		<!-- TREEMAP -->
 		<div class="row">
-
 			<div class = "col align-self-center">
-				<h2 id = "cityname">Current Selected City: Los Angeles </h2>
-
+				<h2>Major Companies in the Fashion Industry</h2>
 			</div>
-
-			<div class="col-md-12" id="chart2">
-					<!-- <p>Click for More Info</p> -->
-
-			</div>
-
+			<div class="col-md-12" id="overview-chart"></div>
+			<div id="legend-overview-chart"></div>
 		</div>
 
 		<br/>
 			<hr/>
 		<br/>
 
-		<div>
-			
-			<img> </img>
-		</div>
+	</div>
+
 
     <!-- JQuery Directly from online -->
 	<!-- <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script> -->
@@ -127,14 +98,10 @@
 
 	<!-- Visualization objects -->
 	<!-- PUT JS FILES OF VISUALIZATIONS HERE -->
-	<script type="application/javascript" src="public/js/beeswarm.js"></script>
 	<script type="application/javascript" src="public/js/overviewChart.js"></script>
-	<script type="application/javascript" src="public/js/globe.js"></script>
-	<script type="application/javascript" src="public/js/2Dglobe.js"></script>
-	<script type="text/javascript" src="public/js/colorMap.js"></script>
+
 
 	<!-- Load data, create visualizations -->
 	<script src="public/js/main.js"></script>
-
 </body>
 </html>

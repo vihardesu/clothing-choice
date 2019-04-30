@@ -19,7 +19,31 @@
 	<link rel="stylesheet" href="public/css/style.css">
 </head>
 <body>
+<!-- Modified from source: https://www.codeply.com/go/kTGlK9Axdk/bootstrap-4-navbar-center-links-examples -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar10">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbar10">
+            <ul class="navbar-nav nav-fill w-100">
+                <li class="nav-item">
+                	<a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="cityTrends.html">Fashion by City</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="companies.html">Top Fashion Brands</a>
+                </li>
 
+                                <li class="nav-item">
+                    <a class="nav-link" href="process_book.html">Our Process Book</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 	<div class="container-fluid">
 
 		<!-- Header -->
@@ -31,24 +55,25 @@
 				<br/>
 				<span>Nick Murray | nicholasmurray@wustl.edu | 441567</span>
 				<br/>
+				<a href="index.html">Return</a>
 					<hr/>
 				<br/>
 			</div>
 		</div>
 
 		<div id="storyBox" class="processBookBlocks">
-		    <div id="story"><svg width="500" height="200"><text class="txt" x="90" y="150">27K</text></svg></div>
+		    <div id="story"><svg width="500" height="200"><text class="txt" x="90" y="150"> 27K</text></svg></div>
 
-		    <p id="tagline" class="processBookTagline">StreetStyle: Exploring world-wide clothing styles from millions of photos</p>
+		    <p id="tagline" class="processBookTagline">Exploring global clothing trends through 27,000 Instagram photos</p>
 
 		    <p id="problemText" class = "processBookText">
-		      FILLER: Each day billions of photographs are uploaded to photo-sharing services and social media platforms. These images are packed with information about how people live around the world.  <br><br>
+		      With improvements in computer vision models and billions of photo uploads to social media platforms like Instagram, a new form of culture and fashion analysis is possible.<br><br>
 
 
-		      In this paper we exploit this rich trove of data to understand fashion and style trends worldwide.<br><br>
+		      In this visualization, we want to demonstrate and explore a few techniques to analyze the trough of great image data available on Instagram to explore clothing preferences in various major cities.<br><br>
 
 
-		      We present a framework for visual discovery at scale, analyzing clothing and fashion across millions of images of people around the world and spanning several years.<br>
+		      <br>
 		    </p>
 		 </div>
 
@@ -60,13 +85,13 @@
 		    <p class="processBookTagline">Overview & Motivation</p>
 
 		    <p class = "processBookText">
-		      FILLER: Each day billions of photographs are uploaded to photo-sharing services and social media platforms. These images are packed with information about how people live around the world.  <br><br>
+		      Our motivation for this data visualization project is in part an experiment and in part a venture into trend analysis that influences millions of people’s clothing decisions everyday. <br><br>
 
 
-		      In this paper we exploit this rich trove of data to understand fashion and style trends worldwide.<br><br>
+		      Fashion trends are influenced by culture in a unique way that allows people to express their identities and connect with others in their communities. We want to take advantage of image data that enable us to quantitate fashion and style trends on both temporal and geographical scales.<br><br>
 
 
-		      We present a framework for visual discovery at scale, analyzing clothing and fashion across millions of images of people around the world and spanning several years.<br>
+		      Here, we present a framework for visual discovery at scale, analyzing clothing and fashion across millions of images of people around the world and spanning several years. We hope this project inspires further conversations about this form of analysis<br>
 		    </p>
 		 </div>
 
@@ -78,31 +103,35 @@
 		    <p class="processBookTagline">Related Work</p>
 
 		    <p class = "processBookText">
-		      FILLER: Each day billions of photographs are uploaded to photo-sharing services and social media platforms. These images are packed with information about how people live around the world.  <br><br>
+		      Our analysis was inspired by work done by Cornell researchers: Kevin Matzen, Kavita Bala and Noah Snavley. They curated and annotated 27,000 instagram images found in the link below.<br><br>
 
 
-		      In this paper we exploit this rich trove of data to understand fashion and style trends worldwide.<br><br>
-
-
-		      We present a framework for visual discovery at scale, analyzing clothing and fashion across millions of images of people around the world and spanning several years.<br>
+		      <a href="http://streetstyle.cs.cornell.edu/">StreetStyle</a>
 		    </p>
+		    <hr/>
 		 </div>
 
 		 <br/>
-			<hr/>
-		<br/>
+		 	<hr/>
+		 <br/>
 
 		<div id="questions">
 		    <p class="processBookTagline">Questions</p>
 
 		    <p class = "processBookText">
-		      FILLER: Each day billions of photographs are uploaded to photo-sharing services and social media platforms. These images are packed with information about how people live around the world.  <br><br>
+		      <b>Can we identify fashion patterns by observing clothing trends across cities and time?</b><br><br>
 
 
-		      In this paper we exploit this rich trove of data to understand fashion and style trends worldwide.<br><br>
+		      One of the key leading indicators for our project was clothing item distribution. We wanted to be able to identify whether certain patterns occur; for example, were are a lot people wearing black in a city like New York on Fridays? Do more people tend to wear white and light colors during warmer temperatures?<br><br>
 
 
-		      We present a framework for visual discovery at scale, analyzing clothing and fashion across millions of images of people around the world and spanning several years.<br>
+
+		      <b>Can we illustrate direction? Where are fashion trends going?</b><br><br>
+
+			  Although future fashion may be considered unpredictable, historically fashion trends have experienced longitudinal patterns. We want to uncover such fashion patterns and potentially key into certain fashion trends so that we can identify the effect that these trends have had on environmental impact. The example below demonstrates a fashion trend in women’s swimsuits, and we can draw intuition about the particular impact that these trends may potentially have.<br><br>
+
+			  Our project has evolved a little bit since we first started. We explore various ways to visualize our data, and at each iteration, we found ourselves finding better techniques to present the data. Originally, we were interested in demonstrating the environmental impact of the clothing industry. We were interested in answering questions like: Are there certain trends that are worse than others for the environment? Do certain city and company pairs influence fast fashion more than others? Is there a way to visualize how this influence spreads on gegraphic and temporal scales?<br><br>
+
 		    </p>
 		 </div>
 
@@ -114,13 +143,20 @@
 		    <p class="processBookTagline">Data</p>
 
 		    <p class = "processBookText">
-		      FILLER: Each day billions of photographs are uploaded to photo-sharing services and social media platforms. These images are packed with information about how people live around the world.  <br><br>
+		      Our data primarily came from the following two sources:<br><br>
 
 
-		      In this paper we exploit this rich trove of data to understand fashion and style trends worldwide.<br><br>
+		      StreetStyle: <a href="http://streetstyle.cs.cornell.edu/">Found Here.</a><br><br>
+
+		      Pitchbook: <a href="https://get.pitchbook.com/pitchbook-data/?utm_source=google&utm_medium=cpc&utm_campaign=EG-Brand-US&utm_term=pitchbooks&_bt=301442962003&_bm=e&_bn=g&gclid=Cj0KCQjwnpXmBRDUARIsAEo71tTSgbU2t74SeXnUH6tls97DUbU2Sh7ERMt6c9hFlBzsujGWafGs2B8aAp9BEALw_wcB">Subscription Only.</a><br><br>
+
+		      Our data capture, cleaning and processing can summarized as so:<br>
+
+		      We fed our data into an SQL database, where we ran queries for specific visualizations.<br><br>
+
+		      Each instagram image contained the following categorical, boolean and continuous values: <i>Id, url, created_time, city_id,month_id, lat, long, x1, y1, x2, y2, width, height, clothing_pattern, major_color, wearing_necktie, collar_presence, wearing_scarf, sleeve_length, neckline_shape, clothing_category, wearing_jacket, wearing_hat, wearing_glasses, multiple_layers</i><br><br>
 
 
-		      We present a framework for visual discovery at scale, analyzing clothing and fashion across millions of images of people around the world and spanning several years.<br>
 		    </p>
 		 </div>
 
@@ -132,14 +168,19 @@
 		    <p class="processBookTagline">Exploratory Data Analysis</p>
 
 		    <p class = "processBookText">
-		      FILLER: Each day billions of photographs are uploaded to photo-sharing services and social media platforms. These images are packed with information about how people live around the world.  <br><br>
+		      We had experimented with a lot variants with our initial visualization designs. Our core theme centered around visualizing cities and having an exploratory interactive component as demonstrated below. We ultimately stuck with this idea.<br><br></p>
 
+		      <!-- add image 1 -->
+		      <img src="images/1.jpg" style="width:800px;height:100%; display: center; align:center; display:block; margin: auto"><br><br>
 
-		      In this paper we exploit this rich trove of data to understand fashion and style trends worldwide.<br><br>
+		      <p class = "processBookText">Additionally, we experimented with styles like representing fashiong companies through their clothing categories (footwear vs. athleisure etc.). We played with treemap implementations, interactive bar graphs and line charts and linear trend analyses like below.<br><br></p>
 
+		      <img src="images/2.jpg" style="width:800px;height:100%; display: center; align:center; display:block; margin: auto"><br><br>
 
-		      We present a framework for visual discovery at scale, analyzing clothing and fashion across millions of images of people around the world and spanning several years.<br>
-		    </p>
+		      <img src="images/3.jpg" style="width:800px;height:100%; display: center; align:center; display:block; margin: auto"><br><br>
+
+		      <br>
+		    
 		 </div>
 
 		 <br/>
@@ -149,10 +190,19 @@
 		<div id="designEvolution">
 		    <p class="processBookTagline">Design Evolution</p>
 
-		    <p class = "processBookText">
-		      We considered a few different visualizations before arriving at our final version. We ended up choosing a simple layout to let users select a city.
-         The beeswarm was chosen as the distribution for the clothing categories so users could easily compare data points, and then they could see individual images.
-		    </p>
+		      <p class = "processBookText">Ultimately, the beeswarm was chosen as the distribution for the clothing categories so users could easily compare data points, and then they could see individual images.<br><br></p>
+
+		      <img src="images/4.jpg" style="width:800px;height:100%; display: center; align:center; display:block; margin: auto"><br><br>
+         	
+         	<p class = "processBookText">Users are then able to navigate a host of different visualizations linked to the beeswarm to gain perspectives about trend distributions more visually. We believe that experiencing size differences visually and time-based trends linearly were most effective in communicating the data.<br><br></p>
+
+         	<img src="images/5.jpg" style="width:800px;height:100%; display: center; align:center; display:block; margin: auto"><br><br>
+
+         	 <p class = "processBookText">An additional instrument we wanted to use was Leaflet's interactive maps. We felt that they effectively helped capture one of our main visualizations: a geographic city-display with our Instagram data overlayed directly on top of it (fitted to the longitude and lattitude that the images were posted in. We felt this added an effective density dimension to our visualization.<br><br></p>
+
+         	<img src="images/6.jpg" style="width:800px;height:100%; display: center; align:center; display:block; margin: auto"><br><br>
+
+
 		 </div>
 
 		 <br/>
@@ -160,17 +210,24 @@
 		<br/>
 
 		<div id="implementation">
-		    <p class="processBookTagline">Implementation</p>
+		    <p class="processBookTagline">Implementation & Final Design</p>
 
-		    <p class = "processBookText">
-		      FILLER: Each day billions of photographs are uploaded to photo-sharing services and social media platforms. These images are packed with information about how people live around the world.  <br><br>
+         	 <p class = "processBookText">Our final representation sought to capture the image data in the most honest way possible while still providing an intuitive format for organic exploration of the content. Our first visualization provides a starting point for the exploration where users can select a city on map to start exploring trends.<br><br></p>
+
+			<!--  -->
+             <img src="images/filler.png" style="width:800px;height:100%; display: center; align:center; display:block; margin: auto"><br><br>
 
 
-		      In this paper we exploit this rich trove of data to understand fashion and style trends worldwide.<br><br>
+         	 <p class = "processBookText">We nudge the user to pay attention to a few key comparisons among styles. We give users access to those images in varieties of accessible formats rather than baraging them with random images.<br><br></p>
 
 
-		      We present a framework for visual discovery at scale, analyzing clothing and fashion across millions of images of people around the world and spanning several years.<br>
-		    </p>
+             <img src="images/filler.png" style="width:800px;height:100%; display: center; align:center; display:block; margin: auto"><br><br>
+
+         	 <p class = "processBookText">We also allow users to explore relative sizes of their favorite fashion brands, prodiving them with a visual breakdown of the fashion industry by subsector.<br><br></p>
+
+
+             <img src="images/filler.png" style="width:800px;height:100%; display: center; align:center; display:block; margin: auto"><br><br>
+
 		 </div>
 
 		 <br/>
@@ -181,13 +238,13 @@
 		    <p class="processBookTagline">Evaluation</p>
 
 		    <p class = "processBookText">
-		      FILLER: Each day billions of photographs are uploaded to photo-sharing services and social media platforms. These images are packed with information about how people live around the world.  <br><br>
+		      Our major takeaway point from our iterative design process was that honest communication of data is more powerful than rigorous back-end analysis. We toyed with more sophisticated pre-processing techniques and played with non-intuitive representations of our data. We ultimately realized that a major advantage of data visualization is that it helps communicate complicated information in accessible ways.<br><br>
 
 
-		      In this paper we exploit this rich trove of data to understand fashion and style trends worldwide.<br><br>
+		      We carried this philosophy through our final implementation, and it was one of the most beneficial shifts of thinking for our project. We sought to be clean and clear; however, we didn't want to compromised the quality of our analyses.<br><br>
 
 
-		      We present a framework for visual discovery at scale, analyzing clothing and fashion across millions of images of people around the world and spanning several years.<br>
+		      In the future, I think this approach for our design thinking can go in a lot of different directions. On one hand, we can foster more creativity on data-joining. In other words, we want to find unique ways to combine independent data sets to provide layers of depth not available in individual feature-spaces. Additionally, we want to think about human intuitive design in a more critical way; we think that prioritizing how a user engages with a visualization leads them to certain conclusions. This form of nudging we think will be a really important design approach.<br>
 		    </p>
 		 </div>
 

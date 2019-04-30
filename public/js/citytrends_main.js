@@ -2,8 +2,9 @@
  * Root file that handles instances of all the charts and loads the visualization
  */
 
-var b;
-var colorMap;
+//var b;
+var c;
+
 var selected_city = "Los Angeles";
 
 (function(){
@@ -20,9 +21,10 @@ var selected_city = "Los Angeles";
         d3.queue()
 	        .defer(d3.json,"raw_data/city_info.json")
           .defer(d3.csv,"data/fashion_companies.csv")
+          .defer(d3.json, "raw_data/city-loc.json")
 	         .await(createVis);
 
-        function createVis(error, city_info, fashion_companies){
+        function createVis(error, city_info, fashion_companies, cityLoc){
 
 
 
@@ -30,16 +32,12 @@ var selected_city = "Los Angeles";
 
               var data = city_info;
 
-
-              var overviewChart = new OverviewChart();
-
-              overviewChart.update(fashion_companies);
-
               //value is the month, and the number is the amount of times it gets printed
-              b = new Beeswarm(city_info);
+              //b = new Beeswarm(city_info);
 
-              var g = new Globe(city_info);
-              var c = new CityGlobe(city_info);
+              c = new CityMap(city_info, cityLoc);
+ 
+              var cg = new CityGlobe(city_info);
 
               colorMap = new ColorMap(city_info);
 

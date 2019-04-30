@@ -119,6 +119,8 @@ Globe.prototype.initVis = function() {
 
 			b.updateVis();
 
+      colorMap.wrangleData();
+
 		})
 
   // Update the visualization
